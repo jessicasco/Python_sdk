@@ -40,6 +40,7 @@ class YouTu(object):
         self._userid     = userid
         self._end_point  = end_point
         conf.set_app_info(appid, secret_id, secret_key, userid, end_point)
+        self.requests_session = requests.Session()
     
     def get_headers(self, req_type):
        
@@ -100,7 +101,9 @@ class YouTu(object):
              
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200:
                 return {'httpcode':r.status_code, 'errorcode':self.IMAGE_NETWORK_ERROR, 'errormsg':'', 'session_id':'', 'similarity':0}
             ret = r.json()
@@ -137,7 +140,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200:  
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'', "confidence":0, "ismatch":0, "session_id":''}
             ret = r.json()
@@ -176,7 +181,9 @@ class YouTu(object):
          
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200:  
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'', "session_id":'', "candidates":[{}]}
             ret = r.json()
@@ -211,7 +218,9 @@ class YouTu(object):
          
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'', "session_id":'', "image_id":'', "image_height":0, "image_width":0, "face":[{}]}
             ret = r.json()
@@ -259,7 +268,9 @@ class YouTu(object):
             
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'', "person_id":'', "suc_group":'', "suc_face":0, "session_id":0, "face_id":'', "group_ids":''}
                 
@@ -285,7 +296,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                  return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'', "deleted":0, "session_id":''}
                  
@@ -330,7 +343,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                   return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'', "face_ids":[], "session_id":'', "added": 0, "ret_codes":[]}
                   
@@ -363,7 +378,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'',  "session_id":'', "deleted ": 0}
                  
@@ -392,7 +409,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'',  "person_id":'', "session_id ": ''}
                 
@@ -418,7 +437,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'',  "person_id":'', "person_name ": '', "face_ids":[], "tag":'', "secret_id":''}
             ret = r.json()
@@ -440,7 +461,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200:
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'',  "group_ids":[]}
                 
@@ -466,7 +489,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200:
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'', "person_ids":[]}    
                 
@@ -492,7 +517,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200:
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'',  "face_ids":[]}  
                 
@@ -518,7 +545,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200:
                  return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'',  "face_info":[]}   
                  
@@ -553,7 +582,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':'', "face_shape":[{}], "image_height":0, "image_width":0, "session_id":''}
   
@@ -588,7 +619,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':''}
   
@@ -623,7 +656,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':''}
   
@@ -632,8 +667,6 @@ class YouTu(object):
             return {'httpcode':0, 'errorcode':self.IMAGE_NETWORK_ERROR, 'errormsg':str(e)}
                 
         return ret
-    
-    
 
     def imagetag(self, image_path, data_type = 0, seq = ''):
     
@@ -660,7 +693,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':''}
   
@@ -695,7 +730,9 @@ class YouTu(object):
         
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':''}
   
@@ -704,7 +741,7 @@ class YouTu(object):
             return {'httpcode':0, 'errorcode':self.IMAGE_NETWORK_ERROR, 'errormsg':str(e)}
                 
         return ret
-        
+    
     def idcardocr(self, image_path, data_type = 0, card_type = 1 ,seq = ''):
     
         req_type='idcardocr' 
@@ -730,7 +767,9 @@ class YouTu(object):
             data["url"] = image_path
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':''}
   
@@ -765,7 +804,9 @@ class YouTu(object):
 
         r = {}
         try:
-            r = requests.post(url, headers=headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200: 
                 return {'httpcode':r.status_code, 'errorcode':'', 'errormsg':''}
   
@@ -788,7 +829,9 @@ class YouTu(object):
 
         r = {}
         try:
-            r = requests.post(url, headers = headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200:
                 return {'httpcode' : r.status_code, 'errorcode' : '', 'errormsg' : '', 'validate_data' : ''}
             ret = r.json()
@@ -836,7 +879,9 @@ class YouTu(object):
 
         r = {}
         try:
-            r = requests.post(url, headers = headers, data = json.dumps(data))
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = self.requests_session.send(prepped)
             if r.status_code != 200:
                 return {'httpcode' : r.status_code, 'errorcode' : '', 'errormsg' : '', 'live_status' : '', 'live_msg' : '', 'compare_status' : '', 'compare_msg' : '', 'sim' : 0, 'photo' : ''}
             ret = r.json()
@@ -877,10 +922,12 @@ class YouTu(object):
 
         r = {}
         try:
-             r = requests.post(url, headers = headers, data = json.dumps(data))
-             if r.status_code != 200 :
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = requests.post(url, headers = headers, data = json.dumps(data))
+            if r.status_code != 200 :
                 return {'httpcode' : r.status_code, 'errorcode' : '', 'errormsg' : '', 'live_status' : '', 'live_msg' : '', 'compare_status' : '', 'compare_msg' : '', 'sim' : 0, 'video_photo' : ''}
-             ret = r.json()
+            ret = r.json()
         except Exception as e:
             return {'httpcode':0, 'errorcode':self.IMAGE_NETWORK_ERROR, 'errormsg':str(e), 'live_status' : '', 'live_msg' : '', 'compare_status' : '', 'compare_msg' : '', 'sim' : 0, 'video_photo' : ''}
 
@@ -916,15 +963,13 @@ class YouTu(object):
 
         r = {}
         try:
-             r = requests.post(url, headers = headers, data = json.dumps(data))
-             if r.status_code != 200:
+            req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
+            prepped = self.requests_session.prepare_request(req)
+            r = requests.post(url, headers = headers, data = json.dumps(data))
+            if r.status_code != 200:
                 return {'httpcode' : r.status_code, 'errorcode' : '', 'errormsg' : '', 'similarity' : '', 'session_id' : session_id}
-             ret = r.json()
+            ret = r.json()
         except Exception as e:
             return {'httpcode':0, 'errorcode':self.IMAGE_NETWORK_ERROR, 'errormsg':str(e), 'similarity' : '', 'session_id' : session_id}
 
         return ret
-    
-
-    
-   
