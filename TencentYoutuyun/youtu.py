@@ -99,7 +99,6 @@ class YouTu(object):
             data["urlA"] = image_pathA
             data["urlB"] = image_pathB
              
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -138,7 +137,6 @@ class YouTu(object):
         else :
             data["url"] = image_path
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -179,7 +177,6 @@ class YouTu(object):
         else :
             data["group_id"] = group_id
          
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -216,7 +213,6 @@ class YouTu(object):
         else :
             data["url"] = image_path
          
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -266,7 +262,6 @@ class YouTu(object):
         else:
             data["url"] = image_path
             
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -294,7 +289,6 @@ class YouTu(object):
             "person_id" : person_id 
         }
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -341,7 +335,6 @@ class YouTu(object):
         else :
             data["urls"] = images
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -376,7 +369,6 @@ class YouTu(object):
             "face_ids":face_ids
         }
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -407,7 +399,6 @@ class YouTu(object):
             "tag":tag
         }
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -435,7 +426,6 @@ class YouTu(object):
             "person_id": person_id
         }
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -459,7 +449,6 @@ class YouTu(object):
             "app_id": self._appid
         }
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -487,7 +476,6 @@ class YouTu(object):
             "group_id": group_id
         }
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -515,7 +503,6 @@ class YouTu(object):
             "person_id": person_id
         }
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -543,7 +530,6 @@ class YouTu(object):
             "face_id": face_id 
         }
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -580,7 +566,6 @@ class YouTu(object):
         else:
             data["url"] = image_path
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -617,7 +602,6 @@ class YouTu(object):
         else:
             data["url"] = image_path
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -654,7 +638,6 @@ class YouTu(object):
         else:
             data["url"] = image_path
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -691,7 +674,6 @@ class YouTu(object):
         else:
             data["url"] = image_path
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -728,7 +710,6 @@ class YouTu(object):
         else:
             data["url"] = image_path
         
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -765,7 +746,7 @@ class YouTu(object):
             data["image"] = base64.b64encode(open(filepath, 'rb').read()).rstrip().decode('utf-8')
         else:
             data["url"] = image_path
-        r = {}
+
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -802,7 +783,6 @@ class YouTu(object):
         else:
             data["url"] = image_path
 
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -827,7 +807,6 @@ class YouTu(object):
             'seq' : seq
         }
 
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -877,7 +856,6 @@ class YouTu(object):
         data['validate_data'] = validate_data
         data['compare_flag'] = compare_flag
 
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -920,7 +898,6 @@ class YouTu(object):
         data['idcard_name'] = idcard_name
         data['validate_data'] = validate_data
 
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
@@ -961,7 +938,6 @@ class YouTu(object):
         data['idcard_number'] = idcard_number
         data['idcard_name'] = idcard_name
 
-        r = {}
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
