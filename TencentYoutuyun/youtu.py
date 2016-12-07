@@ -924,7 +924,7 @@ class YouTu(object):
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
-            r = requests.post(url, headers = headers, data = json.dumps(data))
+            r = self.requests_session.send(prepped)
             if r.status_code != 200 :
                 return {'httpcode' : r.status_code, 'errorcode' : '', 'errormsg' : '', 'live_status' : '', 'live_msg' : '', 'compare_status' : '', 'compare_msg' : '', 'sim' : 0, 'video_photo' : ''}
             ret = r.json()
@@ -965,7 +965,7 @@ class YouTu(object):
         try:
             req = requests.Request('POST',  url, data=json.dumps(data), headers=headers)
             prepped = self.requests_session.prepare_request(req)
-            r = requests.post(url, headers = headers, data = json.dumps(data))
+            r = self.requests_session.send(prepped)
             if r.status_code != 200:
                 return {'httpcode' : r.status_code, 'errorcode' : '', 'errormsg' : '', 'similarity' : '', 'session_id' : session_id}
             ret = r.json()
